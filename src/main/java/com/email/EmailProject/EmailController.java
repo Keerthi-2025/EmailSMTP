@@ -16,8 +16,6 @@ public class EmailController {
     public EmailController(JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
-
-
     @RequestMapping("/send-email")
     public  String sendEmail() {
         try
@@ -27,6 +25,7 @@ public class EmailController {
         message.setFrom("rhkirthi3@gmail.com");
         message.setTo("rhkirthi3@gmail.com");
         message.setSubject("Simple Email Test");
+        message.setText("Hello this is test email");
 
         mailSender.send(message);
         return  "success";
@@ -35,4 +34,30 @@ public class EmailController {
         return e.getMessage();
     }
 }
+
+
+
+
+
+    @RequestMapping("/send-emailAttactment")
+    public  String sendEmailAttactment() {
+        try
+        {
+            SimpleMailMessage message = new SimpleMailMessage();
+
+            message.setFrom("rhkirthi3@gmail.com");
+            message.setTo("rhkirthi3@gmail.com");
+            message.setSubject("Simple Email Test");
+            message.setText("Hello this is test email");
+
+            mailSender.send(message);
+            return  "success";
+
+        }catch(Exception e){
+            return e.getMessage();
+        }
+    }
 }
+
+
+
