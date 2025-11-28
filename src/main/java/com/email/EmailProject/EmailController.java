@@ -1,11 +1,16 @@
 package com.email.EmailProject;
 
 
+import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMailMessage;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.File;
 
 @RestController
 public class EmailController {
@@ -43,12 +48,15 @@ public class EmailController {
     public  String sendEmailAttactment() {
         try
         {
-            SimpleMailMessage message = new SimpleMailMessage();
+            MimeMessage message = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message,true);
 
-            message.setFrom("rhkirthi3@gmail.com");
-            message.setTo("rhkirthi3@gmail.com");
-            message.setSubject("Simple Email Test");
-            message.setText("Hello this is test email");
+            helper.setFrom("rhkirthi3@gmail.com");
+            helper.setTo("rhkirthi3@gmail.com");
+            helper.setSubject("Simple Email Test");
+            helper.setText("Please find the attachment");
+
+            helper.addAttachment("certificate.pdf", new File("C:\\Users\\HP\\Downloads\\certificate.pdf"));
 
             mailSender.send(message);
             return  "success";
