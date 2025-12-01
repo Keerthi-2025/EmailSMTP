@@ -7,6 +7,20 @@ Your application sends the email request → SMTP server processes and routes it
 
 ---
 
+**🧩 How SMTP Works **
+
+Your Application prepares an email message using SMTP settings (host, port, username, password).
+
+The message is sent to an SMTP server (for example: smtp.gmail.com).
+
+The SMTP server authenticates your credentials.
+
+If authentication succeeds, the server queues or forwards the email to the recipient’s mail server.
+
+The recipient’s server delivers the email to the user’s inbox through POP3/IMAP. 
+
+---
+
 # 📧 SMTP Email Configuration (Gmail) – Spring Boot
 
 To enable email sending through Gmail’s SMTP server in your **Spring Boot** application, add the following properties to your `application.properties` (or `application.yml`) file:
