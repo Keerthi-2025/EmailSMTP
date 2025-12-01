@@ -1,4 +1,11 @@
+**What is Email SMTP?**
 
+SMTP (Simple Mail Transfer Protocol) is the standard protocol used for sending emails across the internet. When an application or mail client wants to send an email, it uses an SMTP server to deliver the message to the recipient’s mail server.
+
+In the context of a Spring Boot application, SMTP acts as the bridge between your application and the email service provider (e.g., Gmail, Outlook, Yahoo).
+Your application sends the email request → SMTP server processes and routes it → email reaches the recipient.
+
+---
 
 # 📧 SMTP Email Configuration (Gmail) – Spring Boot
 
