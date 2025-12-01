@@ -7,7 +7,7 @@ Your application sends the email request → SMTP server processes and routes it
 
 ---
 
-**🧩 How SMTP Works **
+**🧩 How SMTP Works** 
 
 Your Application prepares an email message using SMTP settings (host, port, username, password).
 
